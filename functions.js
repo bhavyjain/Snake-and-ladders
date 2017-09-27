@@ -71,7 +71,7 @@ function checkPosition(player) {
     return player.pos;
 }
 function checkSucess(player) {
-    if (player.pos >= sucess) {
+    if (player.pos == sucess) {
         console.log(player.name + " has won....");
         return false;
     }

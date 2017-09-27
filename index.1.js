@@ -1,14 +1,15 @@
 
 function rollDice() {
-    var button = document.getElementById("roll");
     var player = {};
-    player.name = button.value;
-
-    if (button.value == "A") {
+    if (flg == 0) {
         player.pos = a;
+        player.name = "A";
+        flg = 1;
     }
     else {
         player.pos = b;
+        player.name = "B";
+        flg = 0;
     }
     console.log(player.name + " is playing at " + player.pos);
     diePoints = getRandomNumber();
@@ -16,21 +17,20 @@ function rollDice() {
     player.pos += diePoints;
     if (player.pos > sucess) {
         console.log("invalid move sorry...");
-        player.pos -= diePoints;
+        //  player.pos -= diePoints;
+        return true;
     }
-    else {
-        console.log(player.name + " goes to " + player.pos);
-        player.pos = checkPosition(player);
-    }
-    if (button.value == "A") {
+    console.log(player.name + " goes to " + player.pos);
+    player.pos = checkPosition(player);
+    if (flg == 1) {
         a = player.pos;
-        button.value = "B";
     }
     else {
         b = player.pos;
-        button.value = "A";
     }
     console.log("A:" + a + " B:" + b);
     return checkSucess(player);
 }
-
+function start() {
+    while (rollDice() == true);
+}

@@ -28,7 +28,7 @@ function rollDice() {
     else {
         player2 = player;
     }
-    console.log(player1.name+":" + player1.pos + player2.name+":" + player2.pos);
+    console.log(player1.name+":" + player1.pos +"  "+ player2.name+":" + player2.pos);
     return checkSucess(player);
 }
 function start() {

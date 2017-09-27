@@ -1,4 +1,3 @@
-
 var flg = 0;
 var sucess = 50;
 Player = function (name, pos) {

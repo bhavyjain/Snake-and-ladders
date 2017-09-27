@@ -3,12 +3,10 @@ function rollDice() {
     var player = {};
     if (flg == 0) {
         player = player1;
-        //player.name = "A";
         flg = 1;
     }
     else {
         player = player2;
-        //player.name = "B";
         flg = 0;
     }
     console.log(player.name + " is playing at " + player.pos);
@@ -17,7 +15,7 @@ function rollDice() {
     player.pos += diePoints;
     if (player.pos > sucess) {
         console.log("invalid move sorry...");
-        //  player.pos -= diePoints;
+        player.pos -= diePoints;
         return true;
     }
     console.log(player.name + " goes to " + player.pos);

@@ -1,13 +1,12 @@
-var a = 1;
-var b = 1;
+
 var flg = 0;
 var sucess = 50;
 Player = function (name, pos) {
     this.name = name;
     this.pos = pos;
 }
-p1=new Player("A",1);
-p2=new Player("B",1);
+player1=new Player("A",1);
+player2=new Player("B",1);
 var SnakesnLadders = [
     {
         start: 1,

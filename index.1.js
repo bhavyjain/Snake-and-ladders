@@ -2,13 +2,11 @@
 function rollDice() {
     var player = {};
     if (flg == 0) {
-        player.pos = a;
-        player.name = "A";
+        player = player1;
         flg = 1;
     }
     else {
-        player.pos = b;
-        player.name = "B";
+        player = player2;
         flg = 0;
     }
     console.log(player.name + " is playing at " + player.pos);
@@ -17,18 +15,18 @@ function rollDice() {
     player.pos += diePoints;
     if (player.pos > sucess) {
         console.log("invalid move sorry...");
-        //  player.pos -= diePoints;
+        player.pos -= diePoints;
         return true;
     }
     console.log(player.name + " goes to " + player.pos);
     player.pos = checkPosition(player);
     if (flg == 1) {
-        a = player.pos;
+        player1 = player;
     }
     else {
-        b = player.pos;
+        player2 = player;
     }
-    console.log("A:" + a + " B:" + b);
+    console.log(player1.name+":" + player1.pos +"  "+ player2.name+":" + player2.pos);
     return checkSucess(player);
 }
 function start() {

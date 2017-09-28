@@ -4,8 +4,7 @@ Player = function (name, pos) {
     this.name = name;
     this.pos = pos;
 }
-player1=new Player("A",1);
-player2=new Player("B",1);
+players=[new Player("A",1),new Player("B",1)]
 var SnakesnLadders = [
     {
         start: 1,
@@ -35,7 +34,7 @@ var SnakesnLadders = [
         end: 1
     },
     {
-        start: 4,
+        start: 8,
         end: 15,
     },
     {
@@ -56,8 +55,10 @@ function checkPosition(player) {
 
     for (var i = 0; i < SnakesnLadders.length; i++) {
         //console.log(player.pos + "  " + SnakesnLadders[i].start);
-        if (SnakesnLadders[i].start == player.pos) {
-            snl = SnakesnLadders[i];
+        var snl = SnakesnLadders[i];
+
+        if (snl.start == player.pos) {
+            
             if (snl.start > snl.end)
                 console.log("Oops a snake got " + player.name);
             else

@@ -13,7 +13,7 @@ function rollDice() {
         return true;
     }
     console.log(playing_player.name + " goes to " + playing_player.pos);
-    playing_player.pos = checkPosition(playing_player);
+    checkPosition(playing_player);
     var str="";
     for(var i=0;i<players.length;i++){
         str+=players[i].name+":"+players[i].pos+" ";

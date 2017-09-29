@@ -3,6 +3,7 @@ var sucess = 50;
 Player = function (name, pos) {
     this.name = name;
     this.pos = pos;
+    this.next_snl_index=0;
 }
 players=[new Player("A",1),new Player("B",1)]
 var SnakesnLadders = [
@@ -46,31 +47,34 @@ var SnakesnLadders = [
         start: 40,
         end: 10
     }
-
 ];
 function getRandomNumber() {
     return Math.ceil(Math.random() * 6);
 }
 function checkPosition(player) {
-
-    for (var i = 0; i < SnakesnLadders.length; i++) {
-        //console.log(player.pos + "  " + SnakesnLadders[i].start);
+    for (var i = player.next_snl_index; i < SnakesnLadders.length; i++) {
         var snl = SnakesnLadders[i];
-
+        if(snl.start>player.pos){
+            player.next_snl_index=i;
+            return; 
+        }
         if (snl.start == player.pos) {
-            
-            if (snl.start > snl.end)
+            if (snl.start > snl.end){
                 console.log("Oops a snake got " + player.name);
+                i=0;
+            }
             else
                 console.log("Wow " + player.name + " has found a ladder...");
+                
             console.log(player.name + " goes to " + snl.end);
-            return snl.end;
+            player.pos=snl.end;
+           
         }
     }
-    return player.pos;
+    player.next_snl_index=SnakesnLadders.length;
 }
 function checkSucess(player) {
-    if (player.pos == sucess) {
+    if (player.pos >= sucess) {
         console.log(player.name + " has won....");
         return false;
     }
